@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Admin</title>
+    <link href="static/vendor/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/vendor/nouislider/nouislider.min.css">
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="newindex.html" class="brand-logo">
+                <p class="brand-title" width="124px" height="33px" style="font-size: 30px;">Admin</p>
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Dashboard 
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="dlabnav">
+            <div class="dlabnav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="dropdown header-profile">
+                        <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                            <img src="static/images/ion/man (1).png" width="20" alt=""/>
+                            <div class="header-info ms-3">
+                                <span class="font-w600 ">User1</span>
+                            </div>
+                        </a>
+                    </li> 
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row invoice-card-row">
+                    <div class="col-xl-4 col-xxl-4 col-sm-6">
+                        <div class="card bg-warning invoice-card">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <h2 class="text-white invoice-num" id="value-ax"></h2>
+                                    <span class="text-white fs-18">Ax</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xxl-4 col-sm-6">
+                        <div class="card bg-success invoice-card">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <h2 class="text-white invoice-num" id="value-ay"></h2>
+                                    <span class="text-white fs-18">Ay</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xxl-4 col-sm-6">
+                        <div class="card bg-info invoice-card">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <h2 class="text-white invoice-num" id="value-az"></h2>
+                                    <span class="text-white fs-18">Az</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row invoice-card-row">
+                    <div class="col-xl-4 col-xxl-4 col-sm-6">
+                        <div class="card bg-secondary invoice-card">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <h2 class="text-white invoice-num" id="value-gx"></h2>
+                                    <span class="text-white fs-18">Gx</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xxl-4 col-sm-6">
+                        <div class="card bg-secondary invoice-card">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <h2 class="text-white invoice-num" id="value-gy"></h2>
+                                    <span class="text-white fs-18">Gy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-xxl-4 col-sm-6">
+                        <div class="card bg-secondary invoice-card">
+                            <div class="card-body d-flex">
+                                <div>
+                                    <h2 class="text-white invoice-num" id="value-gz"></h2>
+                                    <span class="text-white fs-18">Gz</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row invoice-card-row justify-content-center">
+                        <div class="col-xl-4 col-xxl-4 col-sm-6">
+                            <div class="card bg-primary invoice-card">
+                                <div class="card-body d-flex">
+                                    <div>
+                                        <h2 class="text-white invoice-num" id="value-prediction"></h2>
+                                        <span class="text-white fs-18">Prediction</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">  
+                    <div class="progress default-progress">
+                        <div class="progress-bar bg-gradient-1 progress-animated" id="fall-progress-bar" style="width: 0%; height:20px;" role="progressbar">
+                            <span class="sr-only">0% Complete</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end mt-2 pb-3 justify-content-between">
+                        <span>Fall</span>
+                        <span class="fs-18"><span class="text-black pe-2" id="fall-percentage">0%</span>/100%</span>
+                    </div>
+                    <div class="progress default-progress mt-4">
+                        <div class="progress-bar bg-gradient-2 progress-animated" id="sit-progress-bar" style="width: 0%; height:20px;" role="progressbar">
+                            <span class="sr-only">0% Complete</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end mt-2 pb-3 justify-content-between">
+                        <span>Sit</span>
+                        <span class="fs-18"><span class="text-black pe-2" id="sit-percentage">0%</span>/100%</span>
+                    </div>
+                    <div class="progress default-progress mt-4">
+                        <div class="progress-bar bg-gradient-3 progress-animated" id="stand-progress-bar" style="width: 0%; height:20px;" role="progressbar">
+                            <span class="sr-only">0% Complete</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end mt-2 pb-3 justify-content-between">
+                        <span>Stand</span>
+                        <span class="fs-18"><span class="text-black pe-2" id="stand-percentage">0%</span>/100%</span>
+                    </div>
+                    <div class="progress default-progress mt-4">
+                        <div class="progress-bar bg-gradient-4 progress-animated" id="walk-progress-bar" style="width: 0%; height:20px;" role="progressbar">
+                            <span class="sr-only">0% Complete</span>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-end mt-2 pb-3 justify-content-between">
+                        <span>Walk</span>
+                        <span class="fs-18"><span class="text-black pe-2" id="walk-percentage">0%</span>/100%</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateProgressBar(elementId, percentage) {
+            const progressBar = document.getElementById(elementId);
+            progressBar.style.width = percentage + '%';
+            progressBar.querySelector('.sr-only').textContent = percentage + '% Complete';
+        }
+
+        function updateData() {
+            fetch('/get_data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('value-ax').textContent = data.values[0];
+                    document.getElementById('value-ay').textContent = data.values[1];
+                    document.getElementById('value-az').textContent = data.values[2];
+                    document.getElementById('value-gx').textContent = data.values[3];
+                    document.getElementById('value-gy').textContent = data.values[4];
+                    document.getElementById('value-gz').textContent = data.values[5];
+                    document.getElementById('value-prediction').textContent = data.prediction;
+
+                    updateProgressBar('fall-progress-bar', data.confidence.fall);
+                    document.getElementById('fall-percentage').textContent = data.confidence.fall.toFixed(2) + '%';
+
+                    updateProgressBar('sit-progress-bar', data.confidence.sit);
+                    document.getElementById('sit-percentage').textContent = data.confidence.sit.toFixed(2) + '%';
+
+                    updateProgressBar('stand-progress-bar', data.confidence.stand);
+                    document.getElementById('stand-percentage').textContent = data.confidence.stand.toFixed(2) + '%';
+
+                    updateProgressBar('walk-progress-bar', data.confidence.walk);
+                    document.getElementById('walk-percentage').textContent = data.confidence.walk.toFixed(2) + '%';
+                });
+        }
+
+        setInterval(updateData, 3000);
+        window.onload = updateData;
+    </script>
+
+    <script src="static/vendor/global/global.min.js"></script>
+    <script src="static/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="static/vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="static/vendor/apexchart/apexchart.js"></script>
+    <script src="static/vendor/nouislider/nouislider.min.js"></script>
+    <script src="static/vendor/wnumb/wNumb.js"></script>
+    <script src="static/js/dashboard/dashboard-1.js"></script>
+    <script src="static/js/custom.min.js"></script>
+    <script src="static/js/dlabnav-init.js"></script>
+    <script src="static/js/demo.js"></script>
+    <script src="static/js/styleSwitcher.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activity Recognition Dashboard</title>
+    <img src="images.jpg" alt="Background Image" class="background-image">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333; /* Dark color for the text */
+            position: relative; /* Add relative positioning to the body */
+        }
+        h1 {
+            margin: 20px 0;
+            font-size: 2.5em;
+        }
+        .outer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8); /* Transparent background for the outer container */
+        }
+        .row-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .box {
+            width: 150px;
+            height: 150px;
+            margin: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background for the boxes */
+            transition: transform 0.3s ease;
+        }
+        .box:hover {
+            transform: scale(1.05);
+        }
+        .box-title {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .green-bg {
+            background-color: rgba(195, 230, 203, 0.9);
+            transition: background-color 0.5s ease;
+        }
+        .red-bg {
+            background-color: rgba(245, 198, 203, 0.9);
+            transition: background-color 0.5s ease;
+        }
+        .background-image {
+            position: absolute; /* Position the image absolutely */
+            bottom: 0; /* Position it at the bottom */
+            left: 0;
+            width: 100%;
+            z-index: -1; /* Send the image to the back */
+        }
+    </style>
+    
+</head>
+<body>
+    <img src="images.jpg" alt="Background Image" class="background-image">
+    <h1>Activity Recognition</h1>
+    <div class="outer-container">
+        <div class="row-container">
+            <div class="box" id="meanax">
+                <div class="box-title">ax</div>
+                <div id="value-ax"></div>
+            </div>
+            <div class="box" id="meanay">
+                <div class="box-title">ay</div>
+                <div id="value-ay"></div>
+            </div>
+            <div class="box" id="meanaz">
+                <div class="box-title">az</div>
+                <div id="value-az"></div>
+            </div>
+        </div>
+        <div class="row-container">
+            <div class="box" id="meangx">
+                <div class="box-title">gx</div>
+                <div id="value-gx"></div>
+            </div>
+            <div class="box" id="meangy">
+                <div class="box-title">gy</div>
+                <div id="value-gy"></div>
+            </div>
+            <div class="box" id="meangz">
+                <div class="box-title">gz</div>
+                <div id="value-gz"></div>
+            </div>
+        </div>
+        <div class="row-container">
+            <div class="box" id="predictionBox">
+                <div class="box-title">Prediction</div>
+                <div id="value-prediction"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function updateData() {
+            fetch('/get_data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('value-ax').textContent = data.values[0];
+                    document.getElementById('value-ay').textContent = data.values[1];
+                    document.getElementById('value-az').textContent = data.values[2];
+                    document.getElementById('value-gx').textContent = data.values[3];
+                    document.getElementById('value-gy').textContent = data.values[4];
+                    document.getElementById('value-gz').textContent = data.values[5];
+                    document.getElementById('value-prediction').textContent = data.prediction;
+                    
+                    // Change container color to green if prediction is updated
+                    if (data.prediction !== '') {
+                        document.querySelector('.outer-container').classList.add('green-bg');
+                        document.querySelector('.outer-container').classList.remove('red-bg');
+                    } else { // Change container color to red if prediction is not updated
+                        document.querySelector('.outer-container').classList.remove('green-bg');
+                        document.querySelector('.outer-container').classList.add('red-bg');
+                    }
+                    
+                    // Remove color class after 2 seconds
+                    setTimeout(() => {
+                        document.querySelector('.outer-container').classList.remove('green-bg', 'red-bg');
+                    }, 2000);
+                });
+        }
+
+        setInterval(updateData, 3000);
+        window.onload = updateData;
+    </script>
+</body>
+</html>
