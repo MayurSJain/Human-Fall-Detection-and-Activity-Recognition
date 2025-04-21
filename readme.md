@@ -71,26 +71,5 @@ The system consists of a wearable device that captures motion data via sensors a
 
 ![Fall Detection Output](images/fall_prediction.png)
 
-## 🛠️ Folder Structure
-```
-fall-detection/
-├── Arduino_Code/         # ESP8266 and sensor interfacing code
-├── ML_Model/             # ML scripts, training notebook
-├── Firebase_Functions/   # Trigger and prediction code
-├── images/               # Place extracted paper figures here
-└── README.md
-```
-
-## 👥 Authors
-- Vijaylaxmi Bittal
-- Mayur Jain
-- Shruti Patil
-- Harshada Patil
-
-## 📄 License
-This project is licensed under the MIT License.
-
-## 🙌 Acknowledgements
-Thanks to SVKM’s Institute of Technology, Dhule, for support and infrastructure.
 
 
