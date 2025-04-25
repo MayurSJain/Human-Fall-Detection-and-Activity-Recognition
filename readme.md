@@ -3,8 +3,7 @@
 ## 🔍 Overview
 This project presents an IoT-enabled wearable device for real-time human activity recognition, specifically fall detection, using supervised machine learning. By integrating an MPU6050 motion sensor, an ESP8266 microcontroller, and Firebase cloud services, the system offers reliable monitoring of daily activities like sitting, standing, walking, and falling, mainly targeting elderly care.
 
-> 📄 *This implementation is based on the research paper:* **"Integrating IoT and Machine Learning for Fall Detection and Activity Monitoring"** by Vijaylaxmi Bittal, Mayur Jain, Shruti Patil, and Harshada Patil.
-
+> 📄This project led to the authorship of the research paper: "Integrating IoT and Machine Learning for Fall Detection and Activity Monitoring" by Mayur Jain (myself), Vijaylaxmi Bittal, Shruti Patil, and Harshada Patil.
 ## 🧠 System Architecture
 
 The system consists of a wearable device that captures motion data via sensors and transmits it to Firebase. A pre-trained machine learning model classifies the activity in real-time.
